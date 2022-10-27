@@ -34,22 +34,18 @@ function DiscoveredMovieList({ setThisMovie, rating, setRating, thisMovie }) {
         loader={<h4>Loading...</h4>}
       >
         <div className="row">
-          {discoveredMovies
-            .filter((movie) => {
-              return movie.vote_average > (rating - 1) * 2;
-            })
-            .map((movie) => {
-              return (
-                <div className="col-3 pse-2 mb-5">
-                  <Movie
-                    key={movie.id}
-                    movie={movie}
-                    thisMovie={thisMovie}
-                    setThisMovie={setThisMovie}
-                  />
-                </div>
-              );
-            })}
+          {discoveredMovies.map((movie) => {
+            return (
+              <div className="col-12 col-sm-6 col-md-3 col-lg-2 pse-2 mb-5">
+                <Movie
+                  key={movie.id}
+                  movie={movie}
+                  thisMovie={thisMovie}
+                  setThisMovie={setThisMovie}
+                />
+              </div>
+            );
+          })}
         </div>
       </InfiniteScroll>
     )
